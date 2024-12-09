@@ -1,0 +1,49 @@
+@startuml Taş Kağıt Makas
+title Taş Kağıt Makas Oyunu
+
+abstract class Player {
+    #isim:string
+    #strateji:int
+    --
+    +Oyna()
+}
+
+abstract class ComputerPlayer {
+    #isim:string
+    #strateji:int
+    --
+    +Oyna()
+}
+
+class HumanPlayer {
+    #isim:string
+    #strateji:int
+    --
+    +Oyna()
+}
+
+class RandomComputerPlayer {
+    #isim:string
+    #strateji:int
+    --
+    +Oyna()
+}
+
+class Game {
+    HumanPlayer:Class
+}
+
+package imports {
+    class random
+    class HumanPlayer
+    class RandomComputerPlayer
+}
+
+imports -up-|> Game
+Player -up-|> HumanPlayer
+ComputerPlayer -up-|> RandomComputerPlayer
+HumanPlayer -up-|> imports
+RandomComputerPlayer -up-|> imports
+
+hide empty members
+@enduml
